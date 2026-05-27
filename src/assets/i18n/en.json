@@ -4,6 +4,7 @@
     "REGISTER": "Register",
     "EMAIL": "Email",
     "PASSWORD": "Password",
-    "ENTER": "Sign In"
+    "ENTER": "Sign In",
+    "LOADING": "Loading..."
   }
 }

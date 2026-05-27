@@ -4,6 +4,7 @@
     "REGISTER": "Cadastrar",
     "EMAIL": "E-mail",
     "PASSWORD": "Senha",
-    "ENTER": "Entrar"
+    "ENTER": "Entrar",
+    "LOADING": "Carregando..."
   }
 }
