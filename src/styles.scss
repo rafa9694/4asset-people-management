@@ -1,3 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@use 'bootstrap/scss/bootstrap' as *;
+@use './styles/abstracts/colors';
+@use './styles/abstracts/variables';
+@use './styles/components/buttons';
+@use './styles/base/typography';
 
-@import 'bootstrap/scss/bootstrap';
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: colors.$color-background;
+  color: colors.$color-text-primary;
+  font-family: Arial, Helvetica, sans-serif;
+}

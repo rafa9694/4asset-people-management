@@ -1,0 +1,7 @@
+@use '../abstracts/colors' as colors;
+
+.btn-primary-custom {
+  background-color: colors.$color-primary;
+  color: colors.$color-text-primary;
+  font-weight: 600;
+}

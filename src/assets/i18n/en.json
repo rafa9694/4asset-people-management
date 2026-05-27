@@ -1,0 +1,9 @@
+{
+  "COMMON": {
+    "LOGIN": "Login",
+    "REGISTER": "Register",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "ENTER": "Sign In"
+  }
+}

@@ -1,0 +1,31 @@
+<div class="container vh-100 d-flex align-items-center justify-content-center">
+
+  <div class="card shadow p-4" style="width: 400px;">
+
+    <h2 class="text-center mb-4">
+      {{ 'COMMON.LOGIN' | translate }}
+    </h2>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+      <div class="mb-3">
+        <label>{{ 'COMMON.EMAIL' | translate }}</label>
+
+        <input type="email" class="form-control" formControlName="email">
+      </div>
+
+      <div class="mb-3">
+        <label>{{ 'COMMON.PASSWORD' | translate }}</label>
+
+        <input type="password" class="form-control" formControlName="password">
+      </div>
+
+      <button type="submit" class="btn btn-primary-custom w-100" [disabled]="loading">
+        {{ 'COMMON.ENTER' | translate }}
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
