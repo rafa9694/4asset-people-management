@@ -1,10 +1,12 @@
 {
-  "COMMON": {
-    "LOGIN": "Login",
-    "REGISTER": "Cadastrar",
+  "AUTH": {
+    "TITLE": "Login",
     "EMAIL": "E-mail",
     "PASSWORD": "Senha",
-    "ENTER": "Entrar",
-    "LOADING": "Carregando..."
+    "LOGIN_BUTTON": "Entrar",
+    "CREATE_ACCOUNT": "Criar conta",
+    "FIRST_ACCESS": "Primeiro acesso?",
+    "REGISTER_TITLE": "Cadastro",
+    "REGISTER_BUTTON": "Cadastrar"
   }
 }

@@ -1,10 +1,12 @@
 {
-  "COMMON": {
-    "LOGIN": "Login",
-    "REGISTER": "Register",
+  "AUTH": {
+    "TITLE": "Login",
     "EMAIL": "Email",
     "PASSWORD": "Password",
-    "ENTER": "Sign In",
-    "LOADING": "Loading..."
+    "LOGIN_BUTTON": "Sign in",
+    "CREATE_ACCOUNT": "Create account",
+    "FIRST_ACCESS": "First access?",
+    "REGISTER_TITLE": "Register",
+    "REGISTER_BUTTON": "Register"
   }
 }

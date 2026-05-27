@@ -1,0 +1,13 @@
+@use '../abstracts/colors' as colors;
+
+.link-default {
+  color: colors.$color-secondary;
+
+  transition: opacity 0.2s ease-in-out;
+
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

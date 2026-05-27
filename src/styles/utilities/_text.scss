@@ -1,0 +1,21 @@
+@use '../abstracts/colors' as colors;
+
+.text-primary-custom {
+  color: colors.$color-primary;
+}
+
+.text-secondary-custom {
+  color: colors.$color-secondary;
+}
+
+.text-success-custom {
+  color: colors.$color-success;
+}
+
+.text-warning-custom {
+  color: colors.$color-warning;
+}
+
+.text-muted-custom {
+  color: colors.$color-text-secondary;
+}

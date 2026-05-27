@@ -3,26 +3,34 @@
   <div class="card shadow p-4" style="width: 400px;">
 
     <h2 class="text-center mb-4">
-      {{ 'COMMON.LOGIN' | translate }}
+      {{ 'AUTH.TITLE' | translate }}
     </h2>
 
     <form [formGroup]="form" (ngSubmit)="submit()">
 
       <div class="mb-3">
-        <label>{{ 'COMMON.EMAIL' | translate }}</label>
+        <label>{{ 'AUTH.EMAIL' | translate }}</label>
 
         <input type="email" class="form-control" formControlName="email">
       </div>
 
       <div class="mb-3">
-        <label>{{ 'COMMON.PASSWORD' | translate }}</label>
+        <label>{{ 'AUTH.PASSWORD' | translate }}</label>
 
         <input type="password" class="form-control" formControlName="password">
       </div>
 
       <button type="submit" class="btn btn-primary-custom w-100" [disabled]="loading">
-        {{ 'COMMON.ENTER' | translate }}
+        {{ 'AUTH.LOGIN_BUTTON' | translate }}
       </button>
+
+      <p class="text-center text-secondary-custom">
+        {{ 'AUTH.FIRST_ACCESS' | translate }}
+      
+        <a class="link-default" routerLink="/register">
+          {{ 'AUTH.CREATE_ACCOUNT' | translate }}
+        </a>
+      </p>
 
     </form>
 

@@ -4,6 +4,8 @@
 @use './styles/abstracts/variables';
 @use './styles/components/buttons';
 @use './styles/base/typography';
+@use './styles/components/links';
+@use './styles/utilities/text';
 
 html,
 body {
