@@ -4,7 +4,6 @@ import {
   Validators,
   ReactiveFormsModule
 } from '@angular/forms';
-
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';

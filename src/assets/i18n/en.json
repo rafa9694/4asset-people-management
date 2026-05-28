@@ -7,7 +7,13 @@
     "CREATE_ACCOUNT": "Create account",
     "FIRST_ACCESS": "First access?",
     "REGISTER_TITLE": "Register",
-    "REGISTER_BUTTON": "Register"
+    "REGISTER_BUTTON": "Register",
+    "NAME": "Name",
+    "PHONE": "Phone",
+    "BIRTH_DATE": "Birth Date",
+    "ALREADY_HAVE_ACCOUNT": "Already have an account?",
+    "BACK_LOGIN": "Back to Login",
+    "CONFIRM_PASSWORD": "Confirm Password"
   },
   "ERRORS": {
     "INVALID_CREDENTIALS": "Invalid email or password",
@@ -16,6 +22,14 @@
   "VALIDATIONS": {
     "REQUIRED_EMAIL": "The email is required",
     "INVALID_EMAIL": "Please enter a valid email",
-    "REQUIRED_PASSWORD": "The password is required"
+    "REQUIRED_PASSWORD": "The password is required",
+    "REQUIRED_NAME": "The name is required",
+    "MIN_NAME": "The name must be at least 3 characters long",
+    "MIN_PASSWORD": "The password must be at least 8 characters long",
+    "INVALID_PASSWORD": "The password must contain uppercase, lowercase and a number",
+    "REQUIRED_PHONE": "The phone is required",
+    "REQUIRED_BIRTH_DATE": "The birth date is required",
+    "REQUIRED_CONFIRM_PASSWORD": "The password confirmation is required",
+    "PASSWORD_MISMATCH": "The passwords do not match"
   }
 }
