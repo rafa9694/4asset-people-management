@@ -8,5 +8,14 @@
     "FIRST_ACCESS": "First access?",
     "REGISTER_TITLE": "Register",
     "REGISTER_BUTTON": "Register"
+  },
+  "ERRORS": {
+    "INVALID_CREDENTIALS": "Invalid email or password",
+    "SERVER_ERROR": "Internal server error"
+  },
+  "VALIDATIONS": {
+    "REQUIRED_EMAIL": "The email is required",
+    "INVALID_EMAIL": "Please enter a valid email",
+    "REQUIRED_PASSWORD": "The password is required"
   }
 }

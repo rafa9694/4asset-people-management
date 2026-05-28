@@ -8,5 +8,14 @@
     "FIRST_ACCESS": "Primeiro acesso?",
     "REGISTER_TITLE": "Cadastro",
     "REGISTER_BUTTON": "Cadastrar"
+  },
+  "ERRORS": {
+    "INVALID_CREDENTIALS": "E-mail ou senha inválidos",
+    "SERVER_ERROR": "Erro interno do servidor"
+  },
+  "VALIDATIONS": {
+    "REQUIRED_EMAIL": "O e-mail é obrigatório",
+    "INVALID_EMAIL": "Informe um e-mail válido",
+    "REQUIRED_PASSWORD": "A senha é obrigatória"
   }
 }
