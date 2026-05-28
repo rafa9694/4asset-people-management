@@ -1,0 +1,147 @@
+<div class="container py-5">
+
+  <div class="d-flex justify-content-between align-items-center mb-4">
+
+    <h1 class="text-primary-custom mb-0">
+      {{ 'PEOPLE.TITLE' | translate }}
+    </h1>
+
+    <button type="button" class="btn btn-primary-custom" (click)="openCreateModal()">
+
+      <i class="bi bi-plus-lg me-2"></i>
+
+      {{ 'PEOPLE.CREATE_PERSON' | translate }}
+
+    </button>
+
+  </div>
+
+  @if (loading && !modalOpen) {
+
+    <div class="text-center py-5">
+
+      <div class="spinner-border"></div>
+
+    </div>
+
+  } @else {
+
+  @if (people.length > 0) {
+
+    <div class="table-responsive">
+
+      <table class="table align-middle">
+
+        <thead>
+
+          <tr>
+
+            <th>
+              {{ 'PEOPLE.NAME' | translate }}
+            </th>
+
+            <th>
+              {{ 'PEOPLE.EMAIL' | translate }}
+            </th>
+
+            <th>
+              {{ 'PEOPLE.PHONE' | translate }}
+            </th>
+
+            <th>
+              {{ 'PEOPLE.BIRTH_DATE' | translate }}
+            </th>
+
+            <th class="text-end">
+              {{ 'COMMON.ACTIONS' | translate }}
+            </th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          @for (
+          person of people;
+          track person.id
+          ) {
+
+            <tr>
+
+              <td>
+                {{ person.name }}
+              </td>
+
+              <td>
+                {{ person.email }}
+              </td>
+
+              <td>
+                {{ person.phone }}
+              </td>
+
+              <td>
+                {{ person.birthDate | date: 'dd/MM/yyyy'}}
+              </td>
+
+              <td class="text-end">
+
+                <button 
+                  type="button"
+                  class="btn btn-icon me-2"
+                  (click)="openEditModal(person)"
+                  [title]="'COMMON.EDIT' | translate">
+
+                  <i class="bi bi-pencil-square"></i>
+
+                </button>
+
+                <button 
+                  type="button"
+                  class="btn btn-icon-danger"
+                  (click)="deletePerson(person.id)"
+                  [title]="'COMMON.DELETE' | translate">
+                        
+                    <i class="bi bi-trash"></i>
+
+                </button>
+
+              </td>
+
+            </tr>
+          }
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+    } @else {
+
+      <div class="empty-state">
+
+        <p class="text-muted-custom">
+
+          {{ 'PEOPLE.EMPTY' | translate }}
+
+        </p>
+
+      </div>
+
+    }
+
+  }
+
+</div>
+
+<app-modal [open]="modalOpen" [title]="
+    selectedPerson
+      ? ('PEOPLE.EDIT_TITLE' | translate)
+      : ('PEOPLE.CREATE_TITLE' | translate)" 
+    (closed)="closeModal()">
+
+  <app-person-form [initialValue]="selectedPerson" [loading]="loading" (formSubmit)="submitPerson($event)" />
+
+</app-modal>

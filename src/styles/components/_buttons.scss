@@ -2,6 +2,31 @@
 
 .btn-primary-custom {
   background-color: colors.$color-primary;
-  color: colors.$color-text-primary;
+  color: colors.$color-text-secondary;
   font-weight: 600;
+}
+.btn-primary-custom:hover {
+  opacity: 0.8;
+  background: #505fff;
+}
+
+.btn-icon {
+  border: none;
+  background: transparent;
+  color: colors.$color-secondary;
+  transition: 0.2s ease;
+
+  &:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+
+  i {
+    font-size: 1.1rem;
+  }
+}
+
+.btn-icon-danger {
+  @extend .btn-icon;
+  color: #dc3545;
 }

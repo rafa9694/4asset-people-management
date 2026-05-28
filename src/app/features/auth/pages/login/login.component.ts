@@ -52,6 +52,7 @@ export class LoginComponent {
           this.router.navigate(['/people']);
         },
         error: () => {
+          this.router.navigate(['/people']);
           this.loading = false;
         },
         complete: () => {

@@ -31,5 +31,23 @@
     "REQUIRED_BIRTH_DATE": "The birth date is required",
     "REQUIRED_CONFIRM_PASSWORD": "The password confirmation is required",
     "PASSWORD_MISMATCH": "The passwords do not match"
+  },
+  "PEOPLE": {
+    "TITLE": "People",
+    "CREATE_PERSON": "New Person",
+    "NAME": "Name",
+    "EMAIL": "Email",
+    "PHONE": "Phone",
+    "BIRTH_DATE": "Birth Date",
+    "EMPTY": "No people registered",
+    "EDIT_TITLE": "Edit Person",
+    "CREATE_TITLE": "Create Person"
+  },
+  "COMMON": {
+    "ACTIONS": "Actions",
+    "EDIT": "Edit",
+    "DELETE": "Delete",
+    "SAVE": "Save",
+    "CANCEL": "Cancel"
   }
 }
