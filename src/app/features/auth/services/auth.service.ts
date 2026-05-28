@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 
-
 import { LoginRequest } from '../models/login-request.model';
 import { AuthResponse } from '../models/auth-response.model';
 import { environment } from '../../../environments/environments';
@@ -19,7 +18,7 @@ export class AuthService {
 
   login(data: LoginRequest): Observable<AuthResponse> {
     return this.http
-      .post<AuthResponse>(`${this.apiUrl}/login`, data)
+      .post<AuthResponse>(`${this.apiUrl}/auth/login`, data)
       .pipe(
         tap((response) => {
           localStorage.setItem('token', response.token);
@@ -28,7 +27,7 @@ export class AuthService {
   }
 
   register(data: RegisterRequest): Observable<any> {
-    return this.http.post(`${this.apiUrl}/register`, data);
+    return this.http.post(`${this.apiUrl}/auth/register`, data);
   }
 
   logout(): void {

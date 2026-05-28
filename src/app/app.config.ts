@@ -6,14 +6,15 @@ import { provideTranslateService } from '@ngx-translate/core';
 import { routes } from './app.routes';
 import { provideTranslateHttpLoader, TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { loadingInterceptor } from './core/interceptors/loading.interceptor';
-
+import { errorInterceptor } from './core/interceptors/error.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideHttpClient(
       withInterceptors([
-        loadingInterceptor
+        loadingInterceptor,
+        errorInterceptor
       ])
     ),
     provideTranslateService({

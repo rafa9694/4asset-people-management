@@ -1,0 +1,12 @@
+@if (toastService.visible()) {
+
+<div class="toast-container-custom">
+
+  <div class="alert alert-danger shadow">
+
+    {{ toastService.message() }}
+
+  </div>
+
+</div>
+}
