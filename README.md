@@ -1,27 +1,95 @@
-# 4assetPeopleManagement
+# 4Asset People Management
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.7.
+Application developed as a technical assessment for the Front-end Developer position at 4Asset.
 
-## Development server
+## Technologies
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+* Angular 17
+* TypeScript
+* Bootstrap 5
+* SCSS
+* RxJS
+* ngx-translate
+* ngx-mask
 
-## Code scaffolding
+## Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* User authentication
+* User registration
+* People listing
+* Create person
+* Edit person
+* Delete person
+* Route protection with Auth Guard
+* HTTP Interceptors
+* Internationalization (pt-BR / en)
+* Responsive interface
+* Reusable modal components
+* Form validations
+
+## Project Structure
+
+The application was organized using a feature-based architecture to improve scalability and maintainability.
+
+```txt
+src/app
+├── core
+├── shared
+├── features
+│   ├── auth
+│   └── people
+```
+
+## Environment Configuration
+
+Update the API URL in:
+
+```txt
+src/environments/environment.ts
+```
+
+Example:
+
+```ts
+export const environment = {
+  apiUrl: 'https://dev-api-plt.4asset.net.br/exam'
+};
+```
+
+## Installation
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+## Development Server
+
+Run the application locally:
+
+```bash
+ng serve
+```
+
+Access:
+
+```txt
+http://localhost:4200
+```
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Generate production build:
 
-## Running unit tests
+```bash
+ng build
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Additional Notes
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+* The application uses standalone components.
+* Authentication is handled using JWT token storage.
+* Protected routes are implemented using Angular Guards.
+* API requests automatically include authentication tokens through HTTP Interceptors.
+* Unauthorized requests (401) redirect the user back to the login page.
