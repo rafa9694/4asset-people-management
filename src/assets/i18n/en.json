@@ -33,7 +33,7 @@
     "PASSWORD_MISMATCH": "The passwords do not match"
   },
   "PEOPLE": {
-    "TITLE": "People",
+    "TITLE": "People Registration",
     "CREATE_PERSON": "New Person",
     "NAME": "Name",
     "EMAIL": "Email",
@@ -41,13 +41,16 @@
     "BIRTH_DATE": "Birth Date",
     "EMPTY": "No people registered",
     "EDIT_TITLE": "Edit Person",
-    "CREATE_TITLE": "Create Person"
+    "CREATE_TITLE": "Create Person",
+    "DELETE_TITLE": "Delete person",
+    "DELETE_MESSAGE": "Are you sure you want to delete this person?"
   },
   "COMMON": {
     "ACTIONS": "Actions",
     "EDIT": "Edit",
     "DELETE": "Delete",
     "SAVE": "Save",
-    "CANCEL": "Cancel"
+    "CANCEL": "Cancel",
+    "CONFIRM": "Confirm"
   }
 }

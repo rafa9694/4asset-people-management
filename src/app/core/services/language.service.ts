@@ -17,16 +17,13 @@ export class LanguageService {
       'en'
     ]);
 
-    const language =
-      localStorage.getItem('language') || 'pt-BR';
+    const language = localStorage.getItem('language') || 'pt-BR';
 
     this.translate.use(language);
   }
 
   changeLanguage(language: string): void {
-
     localStorage.setItem('language', language);
-
     this.translate.use(language);
   }
 }

@@ -100,11 +100,11 @@
                 <button 
                   type="button"
                   class="btn btn-icon-danger"
-                  (click)="deletePerson(person.id)"
+                  (click)="openDeleteModal(person)"
                   [title]="'COMMON.DELETE' | translate">
-                        
-                    <i class="bi bi-trash"></i>
-
+                
+                  <i class="bi bi-trash"></i>
+                
                 </button>
 
               </td>
@@ -145,3 +145,14 @@
   <app-person-form [initialValue]="selectedPerson" [loading]="loading" (formSubmit)="submitPerson($event)" />
 
 </app-modal>
+
+<app-confirm-modal [open]="confirmModalOpen" [loading]="loading" [title]="
+    'PEOPLE.DELETE_TITLE'
+    | translate
+  " [message]="
+    'PEOPLE.DELETE_MESSAGE'
+    | translate
+  " (closed)="closeDeleteModal()" (confirmed)="confirmDelete()">
+</app-confirm-modal>
+
+  

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Person } from '../models/person.model';
 import { environment } from '../../../environments/environments';
 import { PersonPayload } from '../models/person-payload.model';
+import { PersonResponse } from '../models/person-response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +18,8 @@ export class PeopleService {
     private http: HttpClient
   ) { }
 
-  findAll(): Observable<Person[]> {
-    return this.http.get<Person[]>(this.apiUrl);
+  findAll(): Observable<PersonResponse> {
+    return this.http.get<PersonResponse>(this.apiUrl);
   }
 
   findById(id: string): Observable<Person> {

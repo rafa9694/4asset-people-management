@@ -11,6 +11,5 @@ import { ToastService } from '../../services/toast.service';
   styleUrls: ['./toast.component.scss']
 })
 export class ToastComponent {
-
   toastService = inject(ToastService);
 }

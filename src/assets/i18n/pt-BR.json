@@ -33,7 +33,7 @@
     "PASSWORD_MISMATCH": "As senhas não coincidem"
   },
   "PEOPLE": {
-    "TITLE": "Pessoas",
+    "TITLE": "Cadastro de Pessoas",
     "CREATE_PERSON": "Nova Pessoa",
     "NAME": "Nome",
     "EMAIL": "E-mail",
@@ -41,13 +41,16 @@
     "BIRTH_DATE": "Nascimento",
     "EMPTY": "Nenhuma pessoa cadastrada",
     "EDIT_TITLE": "Editar pessoa",
-    "CREATE_TITLE": "Criar Pessoa"
+    "CREATE_TITLE": "Criar Pessoa",
+    "DELETE_TITLE": "Excluir pessoa",
+    "DELETE_MESSAGE": "Tem certeza que deseja excluir esta pessoa?"
   },
   "COMMON": {
     "ACTIONS": "Ações",
     "EDIT": "Editar",
     "DELETE": "Excluir",
     "SAVE": "Salvar",
-    "CANCEL": "Cancelar"
+    "CANCEL": "Cancelar",
+    "CONFIRM": "Confirmar"
   }
 }

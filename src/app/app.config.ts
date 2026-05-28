@@ -8,6 +8,7 @@ import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 import { loadingInterceptor } from './core/interceptors/loading.interceptor';
 import { errorInterceptor } from './core/interceptors/error.interceptor';
 import { provideEnvironmentNgxMask } from 'ngx-mask';
+import { authInterceptor } from './core/interceptors/auth.interceotor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -15,7 +16,8 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(
       withInterceptors([
         loadingInterceptor,
-        errorInterceptor
+        errorInterceptor,
+        authInterceptor
       ])
     ),
     provideTranslateService({

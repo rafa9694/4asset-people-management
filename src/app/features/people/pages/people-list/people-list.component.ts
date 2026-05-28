@@ -7,6 +7,7 @@ import { Person } from '../../models/person.model';
 import { PeopleService } from '../../services/people.service';
 import { PersonFormComponent } from '../../components/person-form/person-form.component';
 import { AppModalComponent } from '../../../../shared/components/app-modal/app-modal.component';
+import { ConfirmModalComponent } from '../../../../shared/components/confirm-modal/confirm-modal.component';
 
 @Component({
   selector: 'app-people-list',
@@ -15,50 +16,27 @@ import { AppModalComponent } from '../../../../shared/components/app-modal/app-m
     CommonModule,
     TranslateModule,
     PersonFormComponent,
-    AppModalComponent
+    AppModalComponent,
+    ConfirmModalComponent
   ],
   templateUrl: './people-list.component.html',
   styleUrls: ['./people-list.component.scss']
 })
 export class PeopleListComponent implements OnInit {
 
-  people: Person[] = [
-    {
-      id: '1',
-      name: 'Rafael Ribeiro',
-      email: 'rafael@email.com',
-      phone: '(27) 99999-9999',
-      birthDate: '1998-05-10T00:00:00Z'
-    },
-
-    {
-      id: '2',
-      name: 'Ana Costa',
-      email: 'ana@email.com',
-      phone: '(11) 98888-8888',
-      birthDate: '1995-08-21T00:00:00Z'
-    },
-
-    {
-      id: '3',
-      name: 'Carlos Mendes',
-      email: 'carlos@email.com',
-      phone: '(31) 97777-7777',
-      birthDate: '2000-01-15T00:00:00Z'
-    }
-  ];
-
-  // people: Person[] = [];
+  people: Person[] = [];
   loading = false;
   modalOpen = false;
   selectedPerson?: Person;
+  confirmModalOpen = false;
+  personToDelete?: Person;
 
   constructor(
     private peopleService: PeopleService
   ) { }
 
   ngOnInit(): void {
-    // this.loadPeople();
+    this.loadPeople();
   }
 
   loadPeople(): void {
@@ -73,7 +51,7 @@ export class PeopleListComponent implements OnInit {
       )
       .subscribe({
         next: (response) => {
-          this.people = response;
+          this.people = response.results;
         }
       });
   }
@@ -116,17 +94,33 @@ export class PeopleListComponent implements OnInit {
       });    
   }
 
-  deletePerson(id: string): void {
+  openDeleteModal(person: Person): void {
+    this.personToDelete = person;
+    this.confirmModalOpen = true;
+  }
 
-    const confirmed = confirm('Deseja excluir essa pessoa?');
+  closeDeleteModal(): void {
+    this.confirmModalOpen = false;
+    this.personToDelete = undefined;
+  }
 
-    if (!confirmed) {
+  confirmDelete(): void {
+
+    if (!this.personToDelete) {
       return;
     }
 
-    this.peopleService.delete(id)
+    this.loading = true;
+
+    this.peopleService.delete(this.personToDelete.id)
+      .pipe(
+        finalize(() => {
+          this.loading = false;
+        })
+      )
       .subscribe({
         next: () => {
+          this.closeDeleteModal();
           this.loadPeople();
         }
       });

@@ -1,14 +1,11 @@
 import { Component } from '@angular/core';
-import {
-  FormBuilder,
-  Validators,
-  ReactiveFormsModule
-} from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
+import { finalize } from 'rxjs';
 import { TranslateModule } from '@ngx-translate/core';
 
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../../../core/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -16,8 +13,8 @@ import { AuthService } from '../../services/auth.service';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    TranslateModule,
-    RouterLink
+    RouterLink,
+    TranslateModule
   ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
@@ -25,10 +22,21 @@ import { AuthService } from '../../services/auth.service';
 export class LoginComponent {
 
   loading = false;
-
+  errorMessage = '';
   form = this.fb.nonNullable.group({
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', Validators.required]
+    email: [
+      '',
+      [
+        Validators.required,
+        Validators.email
+      ]
+    ],
+    password: [
+      '',
+      [
+        Validators.required
+      ]
+    ]
   });
 
   constructor(
@@ -37,26 +45,43 @@ export class LoginComponent {
     private router: Router
   ) { }
 
-  submit(): void {
+  get emailControl() {
+    return this.form.controls.email;
+  }
 
+  get passwordControl() {
+    return this.form.controls.password;
+  }
+
+  submit(): void {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       return;
     }
 
+    this.errorMessage = '';
     this.loading = true;
 
-    this.authService.login(this.form.getRawValue())
+    const payload = this.form.getRawValue();
+
+    this.authService.login(payload)
+      .pipe(
+        finalize(() => {
+          this.loading = false;
+        })
+      )
       .subscribe({
         next: () => {
-          this.router.navigate(['/people']);
+          this.router.navigate([
+            '/people'
+          ]);
         },
-        error: () => {
-          this.router.navigate(['/people']);
-          this.loading = false;
-        },
-        complete: () => {
-          this.loading = false;
+        error: (error) => {
+          if (error.status === 401) {
+            this.errorMessage = 'ERRORS.INVALID_CREDENTIALS';
+            return;
+          }
+          this.errorMessage = 'ERRORS.GENERIC';
         }
       });
   }

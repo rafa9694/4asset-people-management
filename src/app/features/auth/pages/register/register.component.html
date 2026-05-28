@@ -1,13 +1,19 @@
 <div class="register-page d-flex align-items-center justify-content-center">
+  
   <div class="register-card card shadow border-0 p-4">
+    
     <h1 class="text-primary-custom text-center mb-4">
       {{ 'AUTH.REGISTER_TITLE' | translate }}
     </h1>
+    
     <form [formGroup]="form" (ngSubmit)="submit()">
+      
       <div class="mb-3">
+      
         <label class="form-label">
           {{ 'AUTH.NAME' | translate }}
         </label>
+      
         <input 
           type="text"
           class="form-control"
@@ -15,23 +21,29 @@
           [class.is-invalid]="nameControl.invalid && nameControl.touched">
 
         @if (nameControl.touched) {
+
           @if (nameControl.errors?.['required']) {
-          <div class="invalid-feedback">
-            {{ 'VALIDATIONS.REQUIRED_NAME' | translate }}
-          </div>
-          } @else if (
-          nameControl.errors?.['minlength']
-          ) {
-          <div class="invalid-feedback">
-            {{ 'VALIDATIONS.MIN_NAME' | translate }}
-          </div>
+
+            <div class="invalid-feedback">
+              {{ 'VALIDATIONS.REQUIRED_NAME' | translate }}
+            </div>
+
+          } @else if (nameControl.errors?.['minlength']) {
+
+            <div class="invalid-feedback">
+              {{ 'VALIDATIONS.MIN_NAME' | translate }}
+            </div>
+
           }
         }
       </div>
+
       <div class="mb-3">
+       
         <label class="form-label">
           {{ 'AUTH.EMAIL' | translate }}
         </label>
+       
         <input 
           type="email"
           class="form-control"
@@ -39,23 +51,29 @@
           [class.is-invalid]="emailControl.invalid && emailControl.touched">
           
         @if (emailControl.touched) {
+
           @if (emailControl.errors?.['required']) {
+
             <div class="invalid-feedback">
               {{ 'VALIDATIONS.REQUIRED_EMAIL' | translate }}
             </div>
-          } @else if (
-          emailControl.errors?.['email']
-          ) {
+
+          } @else if (emailControl.errors?.['email']) {
+           
             <div class="invalid-feedback">
               {{ 'VALIDATIONS.INVALID_EMAIL' | translate }}
             </div>
+
           }
+
         }
       </div>
       <div class="mb-3">
+
         <label class="form-label">
           {{ 'AUTH.PASSWORD' | translate }}
         </label>
+        
         <input
           type="password"
           class="form-control"
@@ -63,31 +81,36 @@
           [class.is-invalid]="passwordControl.invalid && passwordControl.touched">
 
         @if (passwordControl.touched) {
-          @if (
-          passwordControl.errors?.['required']
-          ) {
+          
+          @if (passwordControl.errors?.['required']) {
+           
             <div class="invalid-feedback">
               {{ 'VALIDATIONS.REQUIRED_PASSWORD' | translate }}
+            
             </div>
-          } @else if (
-          passwordControl.errors?.['minlength']
-          ) {
+          } @else if (passwordControl.errors?.['minlength']) {
+            
             <div class="invalid-feedback">
               {{ 'VALIDATIONS.MIN_PASSWORD' | translate }}
+            
+            
             </div>
-          } @else if (
-          passwordControl.errors?.['pattern']
-          ) {
+          } @else if (passwordControl.errors?.['pattern']) {
+            
             <div class="invalid-feedback">
               {{ 'VALIDATIONS.INVALID_PASSWORD' | translate }}
             </div>
+
           }
         }
       </div>
+     
       <div class="mb-3">      
+       
         <label class="form-label">
           {{ 'AUTH.CONFIRM_PASSWORD' | translate }}
         </label>      
+       
         <input 
           type="password"
           class="form-control"
@@ -95,68 +118,82 @@
           [class.is-invalid]="confirmPasswordControl.touched && (form.errors?.['passwordMismatch'] || confirmPasswordControl.invalid)">
       
         @if (confirmPasswordControl.touched) {      
-          @if (
-          confirmPasswordControl.errors?.['required']
-          ) {      
+          @if (confirmPasswordControl.errors?.['required']) {      
+            
             <div class="invalid-feedback">      
               {{ 'VALIDATIONS.REQUIRED_CONFIRM_PASSWORD' | translate }}      
+            
             </div>      
-          } @else if (
-          form.errors?.['passwordMismatch']
-          ) {      
+          } @else if (form.errors?.['passwordMismatch']) {      
+            
             <div class="invalid-feedback">      
               {{ 'VALIDATIONS.PASSWORD_MISMATCH' | translate }}      
             </div>
+
           }
-        }      
+
+        } 
+
       </div>
+     
       <div class="mb-3">
+      
         <label class="form-label">
           {{ 'AUTH.PHONE' | translate }}
         </label>
+     
         <input
           type="text"
           class="form-control"
           formControlName="phone"
           mask="(00) 00000-0000"
           [class.is-invalid]="phoneControl.invalid && phoneControl.touched">
-        @if (
-        phoneControl.errors?.['required']
-        && phoneControl.touched
-        ) {
+        @if (phoneControl.errors?.['required'] && phoneControl.touched) {
+          
           <div class="invalid-feedback">
-            {{ 'VALIDATIONS.REQUIRED_PHONE' | translate }}
+            {{ 'VALIDATIONS.REQUIRED_PHONE' | translate }}          
           </div>
+
         }
       </div>
       <div class="mb-4">
+      
         <label class="form-label">
           {{ 'AUTH.BIRTH_DATE' | translate }}
         </label>
+      
         <input
           type="date"
           class="form-control"
           formControlName="birthDate"
           [class.is-invalid]="birthDateControl.invalid && birthDateControl.touched">
-        @if (
-        birthDateControl.errors?.['required']
-        && birthDateControl.touched
-        ) {
+        @if (birthDateControl.errors?.['required'] && birthDateControl.touched) {
+      
           <div class="invalid-feedback">
             {{ 'VALIDATIONS.REQUIRED_BIRTH_DATE' | translate }}
           </div>
+        
         }
       </div>
+      
       <button type="submit" class="btn btn-primary-custom w-100" [disabled]="loading">
+       
         @if (loading) {
+      
           <span class="spinner-border spinner-border-sm me-2"></span>
+      
         }
+      
         {{ 'AUTH.REGISTER_BUTTON' | translate }}
+      
       </button>
+      
       <p class="text-center mt-4">
+      
         <a routerLink="/login" class="link-default ms-1">
           {{ 'AUTH.BACK_LOGIN' | translate }}
         </a>
+      
       </p>
     </form>
   </div>
